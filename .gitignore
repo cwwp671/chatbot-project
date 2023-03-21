@@ -1,0 +1,34 @@
+# General
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.swp
+*.swo
+*.bak
+
+# Directories
+*.egg-info/
+dist/
+build/
+.env
+
+# Files
+*.sqlite3
+*.csv
+*.json
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# Virtual environments
+venv/
+myenv/
+env/
+*.virtualenv
+
+# PyCharm
+.idea/
+*.iml
