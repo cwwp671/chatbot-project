@@ -1,27 +1,23 @@
 import json
 import nltk
-from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 
+# Download necessary NLTK packages
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
+# Initialize the WordNet lemmatizer
 lemmatizer = WordNetLemmatizer()
 
 
-# def tokenize(text):
-#     tokens = nltk.word_tokenize(text.lower())
-#     tokens = [lemmatizer.lemmatize(token) for token in tokens if
-#               token.isalnum() and token not in stopwords.words('english')]
-#     return tokens
-
-
+# Tokenize the text by lowercasing and removing non-alphanumeric characters
 def tokenize(text):
     return [token.lower() for token in word_tokenize(text) if token.isalnum()]
 
 
+# Preprocess conversations by extracting all user inputs and bot responses
 def preprocess_conversations(tokenized_conversations):
     all_sentences = []
     all_responses = []
@@ -41,6 +37,7 @@ def preprocess_conversations(tokenized_conversations):
     return all_sentences, all_responses
 
 
+# Preprocess raw data by tokenizing all messages and adding 'text' key to each message
 def preprocess_raw_data(raw_data_file, processed_data_file):
     with open(raw_data_file, 'r') as f:
         raw_data = json.load(f)
